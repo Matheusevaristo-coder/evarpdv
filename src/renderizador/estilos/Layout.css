@@ -1,0 +1,71 @@
+/* Layout Global */
+.layout-principal {
+display: flex;
+height: 100vh;
+width: 100vw;
+overflow: hidden;
+background-color: #f4f6f9; /* Cinza bem suave de fundo */
+}
+
+/* Menu Lateral */
+.menu-lateral {
+width: 250px;
+background-color: #1e293b; /* Azul noturno profissional */
+color: white;
+display: flex;
+flex-direction: column;
+padding: 1rem 0;
+box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+transition: width 0.3s;
+}
+
+.menu-logo {
+padding: 0 1.5rem;
+margin-bottom: 2rem;
+font-size: 1.5rem;
+font-weight: bold;
+color: #60a5fa; /* Azul destaque */
+border-bottom: 1px solid #334155;
+padding-bottom: 1rem;
+}
+
+.menu-item {
+display: flex;
+align-items: center;
+padding: 1rem 1.5rem;
+color: #cbd5e1;
+text-decoration: none;
+font-size: 1rem;
+transition: all 0.2s;
+cursor: pointer;
+border-left: 3px solid transparent;
+}
+
+.menu-item:hover {
+background-color: #334155;
+color: white;
+}
+
+.menu-item.ativo {
+background-color: #334155;
+color: #60a5fa;
+border-left-color: #60a5fa;
+}
+
+.menu-item svg {
+margin-right: 12px;
+font-size: 1.2rem;
+}
+
+.menu-footer {
+margin-top: auto;
+padding: 1rem;
+border-top: 1px solid #334155;
+}
+
+/* Área de Conteúdo */
+.conteudo-principal {
+flex: 1;
+padding: 2rem;
+overflow-y: auto; /* Permite scroll apenas no conteúdo */
+}

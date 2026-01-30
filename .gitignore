@@ -1,0 +1,49 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependências
+node_modules
+.pnpm-store
+
+# Build (React e Electron)
+dist
+dist-ssr
+dist-electron
+release
+
+# Arquivos de Ambiente Local (Senhas/Configs locais)
+*.local
+.env
+.env.local
+.env.*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- ESPECÍFICO EVARPDV ---
+
+# Banco de Dados (CRÍTICO: Nunca subir para o Git)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+/src/banco-dados/*.db
+
+# Arquivos temporários do Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini

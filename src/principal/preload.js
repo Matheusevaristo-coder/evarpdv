@@ -1,15 +1,26 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
-// Expõe uma API segura para o React usar
 contextBridge.exposeInMainWorld('apiEvaristo', {
+  // Dados do Sistema
   sistema: {
     versao: process.versions.electron,
     plataforma: process.platform
   },
   
-  // --- ADICIONADO: Módulo de Autenticação ---
+  // Módulo de Autenticação
   autenticacao: {
-    // O React chama esta função, que envia um sinal para o Electron (main.js)
     login: (email, senha) => ipcRenderer.invoke('autenticacao:login', { email, senha })
+  },
+
+  // --- MÓDULO DE PRODUTOS (ADICIONADO AGORA) ---
+  produtos: {
+    // Lista todos os itens do banco
+    listar: () => ipcRenderer.invoke('produtos:listar'),
+    
+    // Cria um novo item (recebe objeto { nome, preco, ... })
+    criar: (dados) => ipcRenderer.invoke('produtos:criar', dados),
+    
+    // Deleta pelo ID
+    excluir: (id) => ipcRenderer.invoke('produtos:excluir', id)
   }
 });

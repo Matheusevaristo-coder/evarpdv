@@ -4,13 +4,15 @@ const path = require('path');
 // ---------------------------------------------------------
 // 1. INICIALIZAÇÃO DO BANCO DE DADOS
 // ---------------------------------------------------------
-// Importamos os repositórios
+// Importamos os repositórios (Lógica do Banco)
 const UsuarioRepositorio = require('../banco-dados/queries/usuarios');
 const ProdutoRepositorio = require('../banco-dados/queries/produtos');
+const VendasRepositorio = require('../banco-dados/queries/vendas'); // <--- NOVO
 
-// Forçamos a verificação das tabelas ao iniciar
+// Forçamos a verificação/criação das tabelas ao iniciar
 UsuarioRepositorio.inicializar();
 ProdutoRepositorio.inicializar();
+VendasRepositorio.inicializar(); // <--- NOVO
 
 
 // ---------------------------------------------------------
@@ -38,7 +40,7 @@ function criarJanela() {
   // Abre o DevTools (F12) automaticamente para ajudar no debug
   janelaPrincipal.webContents.openDevTools();
 
-  // Quando estiver pronta, maximiza e mostra
+  // Quando estiver pronta, maximiza e mostra a tela
   janelaPrincipal.once('ready-to-show', () => {
     janelaPrincipal.maximize();
     janelaPrincipal.show();
@@ -89,3 +91,5 @@ ipcMain.handle('produtos:criar', async (evento, dados) => {
 ipcMain.handle('produtos:excluir', async (evento, id) => {
   return await ProdutoRepositorio.excluir(id);
 });
+
+// --- MÓDULO

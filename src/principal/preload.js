@@ -12,15 +12,19 @@ contextBridge.exposeInMainWorld('apiEvaristo', {
     login: (email, senha) => ipcRenderer.invoke('autenticacao:login', { email, senha })
   },
 
-  // --- MÓDULO DE PRODUTOS (ADICIONADO AGORA) ---
+  // Módulo de Produtos
   produtos: {
-    // Lista todos os itens do banco
     listar: () => ipcRenderer.invoke('produtos:listar'),
-    
-    // Cria um novo item (recebe objeto { nome, preco, ... })
     criar: (dados) => ipcRenderer.invoke('produtos:criar', dados),
-    
-    // Deleta pelo ID
     excluir: (id) => ipcRenderer.invoke('produtos:excluir', id)
+  },
+
+  // --- MÓDULO DE VENDAS (ADICIONADO AGORA) ---
+  vendas: {
+    // Envia o objeto da venda { total, pagamento, itens: [...] }
+    criar: (venda) => ipcRenderer.invoke('vendas:criar', venda),
+    
+    // Busca as últimas vendas para o Dashboard
+    listarRecentes: () => ipcRenderer.invoke('vendas:listar-recentes')
   }
 });

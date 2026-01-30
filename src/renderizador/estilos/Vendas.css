@@ -1,0 +1,120 @@
+/* src/renderizador/estilos/Vendas.css */
+.container-vendas {
+display: grid;
+grid-template-columns: 2fr 1fr; /* 2 partes para lista, 1 parte para total */
+gap: 20px;
+height: calc(100vh - 40px); /* Ocupa a altura toda menos margens */
+font-family: 'Segoe UI', sans-serif;
+color: #334155;
+}
+
+/* --- LADO ESQUERDO: LISTA E BUSCA --- */
+.area-esquerda {
+display: flex;
+flex-direction: column;
+background: white;
+border-radius: 8px;
+padding: 1rem;
+box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.barra-busca {
+display: flex;
+gap: 10px;
+margin-bottom: 1rem;
+}
+
+.barra-busca input {
+flex: 1;
+padding: 15px;
+font-size: 1.2rem;
+border: 2px solid #cbd5e1;
+border-radius: 8px;
+outline: none;
+}
+
+.barra-busca input:focus {
+border-color: #3b82f6;
+}
+
+.lista-carrinho {
+flex: 1;
+overflow-y: auto;
+border-top: 1px solid #e2e8f0;
+}
+
+.item-carrinho {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px;
+border-bottom: 1px solid #f1f5f9;
+font-size: 1.1rem;
+}
+
+.item-carrinho:nth-child(even) {
+background-color: #f8fafc;
+}
+
+/* --- LADO DIREITO: TOTAIS --- */
+.area-direita {
+display: flex;
+flex-direction: column;
+background: #1e293b; /* Fundo Escuro Profissional */
+color: white;
+border-radius: 8px;
+padding: 2rem;
+justify-content: space-between;
+}
+
+.resumo-titulo {
+font-size: 1.5rem;
+border-bottom: 1px solid #475569;
+padding-bottom: 1rem;
+margin-bottom: 1rem;
+}
+
+.display-total {
+text-align: right;
+margin: 2rem 0;
+}
+
+.label-total {
+font-size: 1.2rem;
+color: #94a3b8;
+}
+
+.valor-total {
+font-size: 4rem;
+font-weight: bold;
+color: #4ade80; /* Verde Neon */
+}
+
+.btn-finalizar {
+background-color: #10b981;
+color: white;
+border: none;
+padding: 20px;
+font-size: 1.5rem;
+font-weight: bold;
+border-radius: 8px;
+cursor: pointer;
+width: 100%;
+transition: transform 0.1s;
+}
+
+.btn-finalizar:hover {
+background-color: #059669;
+}
+
+.btn-finalizar:active {
+transform: scale(0.98);
+}
+
+.btn-remover {
+background: none;
+border: none;
+color: #ef4444;
+cursor: pointer;
+font-size: 1.5rem; /* Ícone de lixeira maior */
+}

@@ -1,0 +1,136 @@
+/* src/renderizador/estilos/Produtos.css */
+
+/* Garante que o texto base seja escuro para ler no fundo branco */
+.container-produtos {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #334155; /* Cinza Escuro (Slate-700) */
+  padding-bottom: 2rem;
+}
+
+.container-produtos h1 {
+  color: #1e293b; /* Azul Quase Preto */
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+/* --- ESTILO DO FORMULÁRIO (CARD) --- */
+.card-formulario {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 15px;
+  align-items: flex-end; /* Alinha o botão com a base dos inputs */
+  flex-wrap: wrap;
+  border: 1px solid #e2e8f0;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Tenta ocupar espaço igual */
+  min-width: 150px;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b; /* Cinza Médio */
+  margin-bottom: 6px;
+}
+
+.input-group input {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  color: #333;
+}
+
+.input-group input:focus {
+  border-color: #3b82f6; /* Azul Foco */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Botão Verde de Cadastrar */
+.btn-salvar {
+  background-color: #10b981; /* Verde Esmeralda */
+  color: white;
+  padding: 11px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.1s;
+  height: 42px; /* Altura fixa para alinhar com inputs */
+}
+
+.btn-salvar:hover {
+  background-color: #059669;
+}
+
+.btn-salvar:active {
+  transform: scale(0.98);
+}
+
+/* --- ESTILO DA TABELA --- */
+.tabela-container {
+  overflow-x: auto; /* Permite rolar se a tabela for muito larga */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.tabela-produtos {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  overflow: hidden;
+}
+
+.tabela-produtos th, 
+.tabela-produtos td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tabela-produtos th {
+  background-color: #f8fafc; /* Fundo cinza bem claro */
+  color: #475569;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.tabela-produtos tr:last-child td {
+  border-bottom: none;
+}
+
+.tabela-produtos tr:hover {
+  background-color: #f1f5f9; /* Destaque ao passar o mouse */
+}
+
+/* Botão de Excluir (Pequeno e Vermelho) */
+.btn-excluir {
+  background-color: #fff;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-excluir:hover {
+  background-color: #ef4444;
+  color: white;
+}

@@ -1,71 +1,106 @@
-/* Layout Global */
-.layout-principal {
-display: flex;
-height: 100vh;
-width: 100vw;
-overflow: hidden;
-background-color: #f4f6f9; /* Cinza bem suave de fundo */
+/* src/renderizador/estilos/Layout.css */
+
+/* O Container que segura TUDO (Menu + Conteúdo) */
+.layout-container {
+  display: flex; /* Coloca Menu e Conteúdo lado a lado */
+  height: 100vh; /* Ocupa 100% da altura da janela */
+  width: 100vw;  /* Ocupa 100% da largura da janela */
+  overflow: hidden; /* Evita barras de rolagem duplas */
+  background-color: #f8fafc; /* Fundo cinza bem clarinho e moderno */
 }
 
-/* Menu Lateral */
+/* --- MENU LATERAL (ESQUERDA) --- */
 .menu-lateral {
-width: 250px;
-background-color: #1e293b; /* Azul noturno profissional */
-color: white;
-display: flex;
-flex-direction: column;
-padding: 1rem 0;
-box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-transition: width 0.3s;
+  width: 260px; /* Largura fixa */
+  background-color: #1e293b; /* Azul Escuro Profissional (Slate-800) */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0; /* Garante que o menu nunca encolha */
+  box-shadow: 4px 0 10px rgba(0,0,0,0.1); /* Sombra suave para separar do conteúdo */
+  z-index: 10; /* Fica acima do conteúdo se rolar */
 }
 
-.menu-logo {
-padding: 0 1.5rem;
-margin-bottom: 2rem;
-font-size: 1.5rem;
-font-weight: bold;
-color: #60a5fa; /* Azul destaque */
-border-bottom: 1px solid #334155;
-padding-bottom: 1rem;
+.logo-area {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid #334155;
+  margin-bottom: 1rem;
 }
 
-.menu-item {
-display: flex;
-align-items: center;
-padding: 1rem 1.5rem;
-color: #cbd5e1;
-text-decoration: none;
-font-size: 1rem;
-transition: all 0.2s;
-cursor: pointer;
-border-left: 3px solid transparent;
+.logo-area h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #38bdf8; /* Azul Claro no Logo */
+  letter-spacing: 1px;
 }
 
-.menu-item:hover {
-background-color: #334155;
-color: white;
+.nav-links {
+  flex: 1; /* Empurra o botão Sair para baixo */
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.menu-item.ativo {
-background-color: #334155;
-color: #60a5fa;
-border-left-color: #60a5fa;
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #94a3b8; /* Cinza claro para texto normal */
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-weight: 500;
 }
 
-.menu-item svg {
-margin-right: 12px;
-font-size: 1.2rem;
+.nav-links a:hover {
+  background-color: #334155;
+  color: white;
 }
 
-.menu-footer {
-margin-top: auto;
-padding: 1rem;
-border-top: 1px solid #334155;
+/* Link Ativo (precisamos adicionar lógica no JSX depois, ou usar NavLink) */
+.nav-links a.ativo {
+  background-color: #3b82f6; /* Azul Vibrante */
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5);
 }
 
-/* Área de Conteúdo */
+.btn-sair {
+  padding: 1.5rem;
+  border-top: 1px solid #334155;
+}
+
+.btn-sair button {
+  background: transparent;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.btn-sair button:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* --- ÁREA DE CONTEÚDO (DIREITA) --- */
 .conteudo-principal {
-flex: 1;
-padding: 2rem;
-overflow-y: auto; /* Permite scroll apenas no conteúdo */
+  flex: 1; /* Ocupa TODO o espaço que sobrar */
+  overflow-y: auto; /* Apenas o conteúdo rola, o menu fica fixo */
+  padding: 0; /* Remove padding padrão */
+  position: relative;
+}
+
+/* Wrapper interno para dar respiro nas bordas das páginas */
+.pagina-wrapper {
+  padding: 2rem;
+  max-width: 1600px; /* Limita largura em telas gigantes pra não ficar esticado demais */
+  margin: 0 auto; /* Centraliza se for muito largo */
 }

@@ -1,0 +1,134 @@
+/* src/renderizador/estilos/Dashboard.css */
+
+.dashboard-container {
+padding: 2.5rem;
+color: #334155;
+max-width: 1600px;
+margin: 0 auto;
+animation: fadeIn 0.5s ease-in-out; /* Efeito suave ao abrir */
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Cabeçalho --- */
+.dashboard-header {
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+margin-bottom: 3rem;
+}
+
+.dashboard-header h1 {
+font-size: 2rem;
+margin: 0;
+color: #1e293b;
+font-weight: 800; /* Mais grosso para impor respeito */
+letter-spacing: -0.5px;
+}
+
+.subtitulo {
+color: #64748b;
+margin-top: 5px;
+font-size: 1rem;
+}
+
+.data-hoje {
+font-weight: 600;
+color: #3b82f6; /* Azul destaque */
+background: #eff6ff;
+padding: 8px 16px;
+border-radius: 8px;
+font-size: 0.9rem;
+border: 1px solid #dbeafe;
+}
+
+/* --- Grid de Cartões (O Pulo do Gato) --- */
+.grid-cards {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Um pouco mais largos */
+gap: 24px;
+margin-bottom: 3rem;
+}
+
+.card-kpi {
+background: white;
+border-radius: 16px; /* Bordas mais arredondadas */
+padding: 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+/* Sombra suave e moderna "flutuante" */
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+transition: transform 0.3s, box-shadow 0.3s;
+border: 1px solid white;
+}
+
+.card-kpi:hover {
+transform: translateY(-5px); /* Sobe um pouquinho ao passar o mouse */
+box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+border-color: #e2e8f0;
+}
+
+.card-info h3 {
+font-size: 0.85rem;
+color: #94a3b8;
+margin: 0 0 10px 0;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+font-weight: 700;
+}
+
+.card-info .valor {
+font-size: 2.5rem; /* Números maiores */
+font-weight: 800;
+color: #0f172a;
+letter-spacing: -1px;
+}
+
+/* Ícones com Fundo Colorido (Círculos) */
+.card-icon {
+font-size: 1.8rem;
+width: 60px;
+height: 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%; /* Círculo perfeito */
+}
+
+/* Cores Vibrantes para cada Card */
+.card-vendas .card-icon { 
+background-color: #ecfdf5; /* Fundo Verde Claro */
+color: #059669; /* Ícone Verde Escuro */
+}
+
+.card-produtos .card-icon { 
+background-color: #eff6ff; /* Fundo Azul Claro */
+color: #2563eb; /* Ícone Azulão */
+}
+
+.card-extra .card-icon { 
+background-color: #f5f3ff; /* Fundo Roxo Claro */
+color: #7c3aed; /* Ícone Roxo */
+}
+
+/* --- Placeholder Bonito --- */
+.secao-recente h2 {
+font-size: 1.25rem;
+color: #334155;
+margin-bottom: 1.5rem;
+font-weight: 700;
+}
+
+.tabela-placeholder {
+background: white;
+border-radius: 12px;
+padding: 4rem;
+text-align: center;
+border: 2px dashed #cbd5e1;
+color: #94a3b8;
+font-weight: 500;
+}

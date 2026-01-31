@@ -1,0 +1,113 @@
+/* src/renderizador/estilos/Configuracoes.css */
+.container-config {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #334155;
+  padding-bottom: 3rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.cabecalho-config {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1rem;
+}
+
+.cabecalho-config h1 {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin: 0;
+}
+
+.cabecalho-config p {
+  color: #64748b;
+  margin-top: 5px;
+}
+
+/* CARDS DE SEÇÃO */
+.secao-config {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  border: 1px solid #f1f5f9;
+}
+
+.secao-config h2 {
+  font-size: 1.1rem;
+  color: #334155;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 4px solid #3b82f6; /* Destaque azul */
+  padding-left: 10px;
+}
+
+/* FORMULÁRIO */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.campo-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.campo-form.full-width {
+  grid-column: span 2;
+}
+
+.campo-form label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.campo-form input, 
+.campo-form textarea {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.campo-form input:focus,
+.campo-form textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* BOTÃO SALVAR */
+.barra-acoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.btn-salvar-config {
+  background-color: #2563eb;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-salvar-config:hover {
+  background-color: #1d4ed8;
+}

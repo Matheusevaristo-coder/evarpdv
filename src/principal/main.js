@@ -7,13 +7,14 @@ const path = require('path');
 // Importamos os repositórios (Lógica do Banco)
 const UsuarioRepositorio = require('../banco-dados/queries/usuarios');
 const ProdutoRepositorio = require('../banco-dados/queries/produtos');
-const VendasRepositorio = require('../banco-dados/queries/vendas'); // <--- NOVO
+const VendasRepositorio = require('../banco-dados/queries/vendas');
+const ConfiguracoesRepositorio = require('../banco-dados/queries/configuracoes'); // <--- Configurações
 
 // Forçamos a verificação/criação das tabelas ao iniciar
 UsuarioRepositorio.inicializar();
 ProdutoRepositorio.inicializar();
-VendasRepositorio.inicializar(); // <--- NOVO
-
+VendasRepositorio.inicializar();
+ConfiguracoesRepositorio.inicializar(); // <--- Configurações
 
 // ---------------------------------------------------------
 // 2. CONFIGURAÇÃO DA JANELA PRINCIPAL
@@ -92,4 +93,20 @@ ipcMain.handle('produtos:excluir', async (evento, id) => {
   return await ProdutoRepositorio.excluir(id);
 });
 
-// --- MÓDULO
+// --- MÓDULO: VENDAS (Recuperado) ---
+ipcMain.handle('vendas:criar', async (evento, venda) => {
+  return await VendasRepositorio.criar(venda);
+});
+
+ipcMain.handle('vendas:listar-recentes', async () => {
+  return await VendasRepositorio.listarRecentes();
+});
+
+// --- MÓDULO: CONFIGURAÇÕES (Novo) ---
+ipcMain.handle('config:obter', async () => {
+  return await ConfiguracoesRepositorio.obter();
+});
+
+ipcMain.handle('config:salvar', async (evento, dados) => {
+  return await ConfiguracoesRepositorio.salvar(dados);
+});

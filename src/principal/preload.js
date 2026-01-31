@@ -19,12 +19,15 @@ contextBridge.exposeInMainWorld('apiEvaristo', {
     excluir: (id) => ipcRenderer.invoke('produtos:excluir', id)
   },
 
-  // --- MÓDULO DE VENDAS (ADICIONADO AGORA) ---
+  // Módulo de Vendas
   vendas: {
-    // Envia o objeto da venda { total, pagamento, itens: [...] }
     criar: (venda) => ipcRenderer.invoke('vendas:criar', venda),
-    
-    // Busca as últimas vendas para o Dashboard
     listarRecentes: () => ipcRenderer.invoke('vendas:listar-recentes')
+  },
+
+  // --- MÓDULO DE CONFIGURAÇÕES (NOVO) ---
+  configuracoes: {
+    obter: () => ipcRenderer.invoke('config:obter'),
+    salvar: (dados) => ipcRenderer.invoke('config:salvar', dados)
   }
 });

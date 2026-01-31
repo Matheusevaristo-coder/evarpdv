@@ -1,25 +1,25 @@
 /* src/renderizador/estilos/Vendas.css */
 
 .container-vendas {
-  display: flex; /* Mudamos de Grid para Flex para evitar quebras */
-  height: 100%; /* Ocupa a altura exata do pai (LayoutPrincipal) */
+  display: flex; /* Flex para evitar quebras */
+  height: 100%; 
   width: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow: hidden; /* Impede barras de rolagem na tela inteira */
-  background-color: #e2e8f0; /* Fundo cinza base */
+  overflow: hidden; 
+  background-color: #e2e8f0; 
 }
 
-/* --- LADO ESQUERDO: LISTA DE PRODUTOS (Ocupa o espaço que sobra) --- */
+/* --- LADO ESQUERDO: LISTA DE PRODUTOS --- */
 .area-esquerda {
   flex: 1; 
   display: flex;
   flex-direction: column;
   padding: 15px;
   background-color: #f1f5f9;
-  min-width: 0; /* Impede que o flex estoure */
+  min-width: 0; 
 }
 
-/* Barra de Busca (Topo) */
+/* Barra de Busca */
 .barra-busca {
   margin-bottom: 10px;
   background: white;
@@ -37,7 +37,7 @@
   border-radius: 4px;
   outline: none;
   font-weight: 600;
-  text-transform: uppercase; /* Ajuda na leitura */
+  text-transform: uppercase; 
 }
 
 .barra-busca input:focus {
@@ -45,10 +45,10 @@
   background-color: #eff6ff;
 }
 
-/* Lista de Itens (Estilo Cupom Fiscal / Tabela) */
+/* Lista de Itens (Estilo Cupom) */
 .lista-carrinho {
-  flex: 1; /* Ocupa o resto da altura */
-  overflow-y: auto; /* Rolagem apenas aqui */
+  flex: 1; 
+  overflow-y: auto; 
   background: white;
   border: 1px solid #cbd5e1;
   border-radius: 6px;
@@ -60,17 +60,16 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px 15px;
-  border-bottom: 1px dashed #cbd5e1; /* Linha pontilhada estilo cupom */
+  border-bottom: 1px dashed #cbd5e1; 
   font-size: 0.95rem;
   color: #333;
 }
 
-/* Efeito "Zebrado" (Linha sim, linha não) */
 .item-carrinho:nth-child(even) {
   background-color: #f8fafc;
 }
 .item-carrinho:hover {
-  background-color: #e0f2fe; /* Destaque azul claro ao passar mouse */
+  background-color: #e0f2fe; 
 }
 
 .item-info {
@@ -84,7 +83,7 @@
 }
 
 .item-preco {
-  font-family: 'Courier New', Courier, monospace; /* Fonte de máquina */
+  font-family: 'Courier New', Courier, monospace; 
   font-weight: bold;
   font-size: 1.1rem;
   margin-right: 15px;
@@ -105,10 +104,10 @@
   border-radius: 4px;
 }
 
-/* --- LADO DIREITO: BARRA LATERAL FIXA (Estilo Painel) --- */
+/* --- LADO DIREITO: BARRA LATERAL --- */
 .area-direita {
-  width: 320px; /* Largura fixa para não quebrar */
-  background-color: #1e293b; /* Fundo Escuro Profissional */
+  width: 320px; 
+  background-color: #1e293b; 
   color: white;
   display: flex;
   flex-direction: column;
@@ -118,7 +117,6 @@
   z-index: 5;
 }
 
-/* Área Superior Direita */
 .resumo-titulo {
   text-align: center;
   font-size: 1rem;
@@ -130,9 +128,8 @@
   letter-spacing: 1px;
 }
 
-/* Display do Total (Estilo Visor Digital) */
 .display-total {
-  background-color: #0f172a; /* Mais escuro que o fundo */
+  background-color: #0f172a; 
   border: 2px solid #334155;
   border-radius: 8px;
   padding: 15px;
@@ -147,17 +144,16 @@
 }
 
 .valor-total {
-  font-size: 3rem; /* Grande, mas não gigante */
+  font-size: 3rem; 
   font-weight: bold;
-  color: #4ade80; /* Verde Neon */
+  color: #4ade80; 
   font-family: 'Courier New', monospace;
   line-height: 1.1;
-  white-space: nowrap; /* Impede quebra de linha */
+  white-space: nowrap; 
   overflow: hidden;
-  text-overflow: ellipsis; /* ... se ficar muito grande */
+  text-overflow: ellipsis; 
 }
 
-/* Botão Finalizar */
 .btn-finalizar {
   background-color: #10b981;
   color: white;
@@ -169,7 +165,7 @@
   cursor: pointer;
   width: 100%;
   text-transform: uppercase;
-  box-shadow: 0 4px 0 #059669; /* Efeito 3D de botão */
+  box-shadow: 0 4px 0 #059669; 
   transition: all 0.1s;
 }
 
@@ -178,6 +174,220 @@
 }
 
 .btn-finalizar:active {
-  transform: translateY(4px); /* Botão afunda ao clicar */
+  transform: translateY(4px); 
   box-shadow: none;
+}
+
+/* =========================================
+   ESTILOS DO MODAL DE PAGAMENTO
+   ========================================= */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75); /* Escurece o fundo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+}
+
+.modal-conteudo {
+  background: white;
+  width: 500px;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+  color: #334155;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header h2 {
+  margin: 0 0 1.5rem 0;
+  color: #1e293b;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1rem;
+}
+
+/* Opções de Pagamento */
+.opcoes-pagamento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.btn-opcao {
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #64748b;
+  transition: all 0.2s;
+}
+
+.btn-opcao:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+.btn-opcao.selecionado {
+  border-color: #3b82f6;
+  background: #eff6ff;
+  color: #3b82f6;
+}
+
+/* Área de Valores (Troco) */
+.area-valores {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.grupo-input {
+  margin-bottom: 1rem;
+}
+
+.grupo-input label {
+  display: block;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 5px;
+}
+
+.grupo-input input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.4rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+  font-weight: bold;
+  color: #1e293b;
+}
+
+.grupo-input input:focus {
+  border-color: #3b82f6;
+}
+
+.info-troco {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #334155;
+  border-top: 1px dashed #cbd5e1;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.valor-troco {
+  color: #10b981; 
+  font-size: 1.6rem;
+}
+
+/* Botões do Modal */
+.modal-footer {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-cancelar {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  background: #e2e8f0;
+  color: #475569;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-confirmar {
+  flex: 2;
+  padding: 15px;
+  border: none;
+  background: #10b981;
+  color: white;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.btn-confirmar:hover { background: #059669; }
+.btn-cancelar:hover { background: #cbd5e1; }
+
+
+/* =========================================
+   NOVO: ESTILO DO MODAL DE SUCESSO (CHECK)
+   ========================================= */
+
+.modal-conteudo.sucesso {
+  text-align: center;
+  border-top: 8px solid #10b981; /* Faixa verde no topo */
+  width: 450px;
+}
+
+.area-troco-sucesso {
+  background-color: #ecfdf5; /* Fundo verde bem clarinho */
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  border: 1px dashed #10b981;
+}
+
+.area-troco-sucesso span {
+  display: block;
+  font-size: 0.9rem;
+  color: #059669;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.valor-gigante {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #059669;
+  line-height: 1;
+}
+
+.btn-fechar-modal {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #94a3b8;
+}
+
+/* Ajuste nos botões para ficarem bonitos no modal de sucesso */
+.modal-footer button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.1s;
+}
+
+.modal-footer button:active {
+    transform: scale(0.98);
 }

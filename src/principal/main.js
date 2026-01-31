@@ -39,7 +39,7 @@ function criarJanela() {
   janelaPrincipal.loadURL(urlDesenvolvimento);
 
   // Abre o DevTools (F12) automaticamente para ajudar no debug
-  janelaPrincipal.webContents.openDevTools();
+  //janelaPrincipal.webContents.openDevTools();
 
   // Quando estiver pronta, maximiza e mostra a tela
   janelaPrincipal.once('ready-to-show', () => {

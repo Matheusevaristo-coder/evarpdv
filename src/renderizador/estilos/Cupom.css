@@ -1,0 +1,85 @@
+/* src/renderizador/estilos/Cupom.css */
+
+/* Por padrão, o cupom fica escondido na tela */
+.area-cupom {
+  display: none;
+}
+
+/* MÁGICA DA IMPRESSÃO */
+@media print {
+  /* Esconde TUDO o que existe no sistema */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Mostra APENAS a área do cupom */
+  .area-cupom, .area-cupom * {
+    visibility: visible;
+  }
+
+  /* Posiciona o cupom no topo da folha */
+  .area-cupom {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%; /* Ocupa a largura do papel configurado na impressora */
+    font-family: 'Courier New', Courier, monospace; /* Fonte clássica de cupom */
+    font-size: 12px; /* Tamanho legível */
+    color: black;
+    background: white;
+  }
+
+  /* Estilos internos do cupom */
+  .cupom-cabecalho {
+    text-align: center;
+    border-bottom: 1px dashed #000;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+
+  .cupom-titulo {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .cupom-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 5px;
+  }
+
+  .cupom-tabela th {
+    text-align: left;
+    border-bottom: 1px dashed #000;
+  }
+
+  .cupom-tabela td {
+    padding-top: 2px;
+  }
+
+  .col-preco {
+    text-align: right;
+  }
+
+  .cupom-totais {
+    border-top: 1px dashed #000;
+    padding-top: 5px;
+    margin-top: 5px;
+    text-align: right;
+  }
+
+  .linha-total {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .cupom-rodape {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 10px;
+    border-top: 1px dashed #000;
+    padding-top: 5px;
+  }
+}
